@@ -11,11 +11,14 @@ export default function Home() {
 
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth() + 1; // 1-12
-
+  /*
   const { data: bookings = [], isLoading } = useGetBookings({
     year,
     month
   });
+  */
+  const bookings = [];
+  const isLoading = false;
 
   const nextMonth = () => setCurrentDate(prev => addMonths(prev, 1));
   const prevMonth = () => setCurrentDate(prev => subMonths(prev, 1));
