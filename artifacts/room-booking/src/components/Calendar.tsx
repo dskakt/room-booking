@@ -12,7 +12,7 @@ const SLOTS = [
   { id: BookingTimeSlot.slot2, label: '2限', time: '10:45-12:25' },
   { id: BookingTimeSlot.slot3, label: '3限', time: '13:30-15:10' },
   { id: BookingTimeSlot.slot4, label: '4限', time: '15:25-17:15' },
-  { id: BookingTimeSlot.slot5, label: '17:30以降', time: '17:30-' },
+  { id: BookingTimeSlot.slot5, label: 'それ以降', time: '17:30-' },
 ] as const;
 
 const ROOMS = [
