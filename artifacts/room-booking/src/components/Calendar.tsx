@@ -128,7 +128,7 @@ export function Calendar({ currentDate, bookings, isLoading }: CalendarProps) {
                 <th className="sticky left-0 z-20 bg-slate-50 border-r border-slate-200 py-4 px-4 font-semibold text-slate-700 w-32 shadow-[1px_0_0_0_#e2e8f0]">日付</th>
                 <th className="py-4 px-4 font-semibold text-slate-700 border-r border-slate-200 w-24">時間帯</th>
                 {ROOMS.map(room => (
-                  <th key={room.id} className="py-4 px-4 font-semibold text-slate-700 border-r border-slate-200 last:border-r-0 min-w-[160px] w-[25%]">
+                  <th key={room.id} className="py-4 px-4 font-semibold text-slate-700 border-r border-slate-200 last:border-r-0 min-w-[100px] w-[16%]">
                     {room.name}
                   </th>
                 ))}
