@@ -34,15 +34,19 @@ export function Calendar({ currentDate, bookings, isLoading }: CalendarProps) {
     date: string;
     timeSlot: CreateBookingRequestTimeSlot;
     timeSlotLabel: string;
+    timeSlotTime: string;
     roomId: number;
     roomName: string;
+    roomLocation: string;
   }>({
     isOpen: false,
     date: "",
     timeSlot: "slot1",
     timeSlotLabel: "",
+    timeSlotTime: "",
     roomId: 1,
     roomName: "",
+    roomLocation: "",
   });
 
   // State for Delete Modal
@@ -101,8 +105,10 @@ export function Calendar({ currentDate, bookings, isLoading }: CalendarProps) {
         date: dateStr,
         timeSlot: slot.id as CreateBookingRequestTimeSlot,
         timeSlotLabel: slot.label,
+        timeSlotTime: slot.time,
         roomId: room.id,
         roomName: room.name,
+        roomLocation: room.location,
       });
     }
   };
@@ -212,8 +218,10 @@ export function Calendar({ currentDate, bookings, isLoading }: CalendarProps) {
         date={bookingModal.date}
         timeSlot={bookingModal.timeSlot}
         timeSlotLabel={bookingModal.timeSlotLabel}
+        timeSlotTime={bookingModal.timeSlotTime}
         roomId={bookingModal.roomId}
         roomName={bookingModal.roomName}
+        roomLocation={bookingModal.roomLocation}
       />
       <DeleteConfirmDialog
         isOpen={deleteModal.isOpen}

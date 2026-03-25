@@ -19,11 +19,13 @@ interface BookingFormProps {
   date: string;
   timeSlot: CreateBookingRequestTimeSlot;
   timeSlotLabel: string;
+  timeSlotTime: string;
   roomId: number;
   roomName: string;
+  roomLocation: string;
 }
 
-export function BookingForm({ isOpen, onClose, date, timeSlot, timeSlotLabel, roomId, roomName }: BookingFormProps) {
+export function BookingForm({ isOpen, onClose, date, timeSlot, timeSlotLabel, timeSlotTime, roomId, roomName, roomLocation }: BookingFormProps) {
   const { createBooking, isCreating } = useBookingMutations();
   
   const { register, handleSubmit, formState: { errors }, reset } = useForm<BookingFormValues>({
@@ -68,11 +70,11 @@ export function BookingForm({ isOpen, onClose, date, timeSlot, timeSlotLabel, ro
           </div>
           <div className="flex text-sm">
             <span className="w-20 text-slate-500">時間帯</span>
-            <span className="font-medium text-slate-900">{timeSlotLabel}</span>
+            <span className="font-medium text-slate-900">{timeSlotLabel}　<span className="text-slate-500 font-normal">({timeSlotTime})</span></span>
           </div>
           <div className="flex text-sm">
             <span className="w-20 text-slate-500">会議室</span>
-            <span className="font-medium text-slate-900">{roomName}</span>
+            <span className="font-medium text-slate-900">{roomLocation}</span>
           </div>
         </div>
 
