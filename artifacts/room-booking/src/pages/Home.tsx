@@ -33,7 +33,6 @@ export default function Home() {
         className="fixed inset-0 z-[-1] opacity-[0.03] pointer-events-none"
         style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/auth-bg.png)`, backgroundSize: 'cover' }}
       />
-      
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 space-y-8">
         
         {/* Header Section */}
@@ -43,9 +42,7 @@ export default function Home() {
               <CalendarIcon size={14} />
               ROOM BOOKING
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">
-              会議室予約システム
-            </h1>
+            <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">融合理工学系の会議室予約</h1>
             <p className="text-slate-500 font-medium">
               空いている枠をクリックして会議室を予約できます。
             </p>
