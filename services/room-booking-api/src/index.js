@@ -49,8 +49,13 @@ app.get("/api/bookings", async (req, res) => {
 
     const result = await pool.query(
       `
-      select id, booker_name as "bookerName", date, time_slot as "timeSlot", room_id as "roomId"
-      from bookings
+      select
+  id,
+  booker_name as "bookerName",
+  to_char(date, 'YYYY-MM-DD') as "date",
+  time_slot as "timeSlot",
+  room_id as "roomId"
+from bookings
       where date >= $1::date
         and date < $2::date
       order by date asc, room_id asc, time_slot asc
