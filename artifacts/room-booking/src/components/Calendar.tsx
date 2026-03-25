@@ -18,7 +18,7 @@ const SLOTS = [
 const ROOMS = [
   { id: 1, name: '会議室1', location: '石川台4号館 B02-B05', seats: 48 as const },
   { id: 2, name: '会議室2', location: '石川台4号館 B08-B09', seats: 15 as const },
-  { id: 3, name: '会議室3', location: '南6号館 106', seats: 10 as const },
+  { id: 3, name: '会議室3', location: '南6号館 102', seats: 10 as const },
 ];
 
 interface CalendarProps {
