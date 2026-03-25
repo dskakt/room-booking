@@ -1,0 +1,18 @@
+packages:
+  "date-fns": "For calendar date manipulation and formatting"
+  "framer-motion": "For smooth modal animations and page transitions"
+  "@hookform/resolvers": "For Zod schema validation in react-hook-form"
+  "react-hook-form": "For robust form state management"
+  "clsx": "Utility for conditionally joining classNames"
+  "tailwind-merge": "Utility to safely merge Tailwind CSS classes"
+  "zod": "For schema validation"
+  "lucide-react": "For beautiful, consistent icons"
+
+images:
+  - path: "artifacts/room-booking/public/images/auth-bg.png"
+    description: "A very subtle, minimal geometric pattern in light gray and white, professional and clean, suitable for a subtle background layer."
+    aspect_ratio: "16:9"
+
+notes:
+  - "The API endpoints and types are imported directly from the generated @workspace/api-client-react package."
+  - "Calendar is rendered as a complex HTML table to support the Date x TimeSlot vertical axis and Room horizontal axis."

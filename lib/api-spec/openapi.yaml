@@ -1,15 +1,16 @@
 openapi: 3.1.0
 info:
-  # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: 会議室予約システム API
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: bookings
+    description: 会議室予約
 paths:
   /healthz:
     get:
@@ -24,6 +25,80 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /bookings:
+    get:
+      operationId: getBookings
+      tags: [bookings]
+      summary: 予約一覧取得
+      description: 指定した年月の予約一覧を返す
+      parameters:
+        - name: year
+          in: query
+          required: true
+          schema:
+            type: integer
+          description: 年
+        - name: month
+          in: query
+          required: true
+          schema:
+            type: integer
+          description: 月 (1-12)
+      responses:
+        "200":
+          description: 予約一覧
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Booking"
+    post:
+      operationId: createBooking
+      tags: [bookings]
+      summary: 予約作成
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateBookingRequest"
+      responses:
+        "201":
+          description: 作成された予約
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Booking"
+        "409":
+          description: 既に予約済み
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /bookings/{id}:
+    delete:
+      operationId: deleteBooking
+      tags: [bookings]
+      summary: 予約削除
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: 削除成功
+        "404":
+          description: 予約が見つからない
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
 components:
   schemas:
     HealthStatus:
@@ -34,3 +109,63 @@ components:
       required:
         - status
 
+    Booking:
+      type: object
+      properties:
+        id:
+          type: integer
+        bookerName:
+          type: string
+          description: 予約者名
+        date:
+          type: string
+          format: date
+          description: 予約日 (YYYY-MM-DD)
+        timeSlot:
+          type: string
+          enum: [slot1, slot2, slot3, slot4, slot5]
+          description: 時間帯 (slot1=1限, slot2=2限, slot3=3限, slot4=4限, slot5=17:30以降)
+        roomId:
+          type: integer
+          description: 会議室ID (1, 2, 3)
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - bookerName
+        - date
+        - timeSlot
+        - roomId
+        - createdAt
+
+    CreateBookingRequest:
+      type: object
+      properties:
+        bookerName:
+          type: string
+          description: 予約者名
+        date:
+          type: string
+          format: date
+          description: 予約日 (YYYY-MM-DD)
+        timeSlot:
+          type: string
+          enum: [slot1, slot2, slot3, slot4, slot5]
+          description: 時間帯
+        roomId:
+          type: integer
+          description: 会議室ID (1, 2, 3)
+      required:
+        - bookerName
+        - date
+        - timeSlot
+        - roomId
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error
