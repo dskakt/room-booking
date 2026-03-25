@@ -160,7 +160,7 @@ export function Calendar({ currentDate, bookings, isLoading }: CalendarProps) {
                         slotIndex === SLOTS.length - 1 ? "border-b border-slate-200" : ""
                       )}>
                         <div className="font-medium text-slate-700 text-[14px]">{slot.label}</div>
-                        <div className="text-[10px] text-slate-400 scale-90">{slot.time}</div>
+                        <div className="text-slate-400 scale-90 text-[14px]">{slot.time}</div>
                       </td>
                       {ROOMS.map(room => {
                         const key = `${day.dateStr}_${slot.id}_${room.id}`;
