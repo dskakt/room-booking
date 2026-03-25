@@ -38,7 +38,7 @@ export function DeleteConfirmDialog({ isOpen, onClose, bookingId, bookerName, da
           <DialogTitle>予約のキャンセル</DialogTitle>
         </div>
         <DialogDescription className="pt-2">
-          この予約をキャンセルしてもよろしいですか？この操作は取り消せません。
+          この予約をキャンセルしてもよろしいですか？
         </DialogDescription>
       </DialogHeader>
 
