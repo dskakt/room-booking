@@ -9,10 +9,13 @@ interface DeleteConfirmDialogProps {
   onClose: () => void;
   bookingId: number | null;
   bookerName: string;
-  details: string;
+  dateDisplay: string;
+  timeSlotLabel: string;
+  timeSlotTime: string;
+  roomLocation: string;
 }
 
-export function DeleteConfirmDialog({ isOpen, onClose, bookingId, bookerName, details }: DeleteConfirmDialogProps) {
+export function DeleteConfirmDialog({ isOpen, onClose, bookingId, bookerName, dateDisplay, timeSlotLabel, timeSlotTime, roomLocation }: DeleteConfirmDialogProps) {
   const { deleteBooking, isDeleting } = useBookingMutations();
 
   const handleDelete = async () => {
@@ -40,9 +43,23 @@ export function DeleteConfirmDialog({ isOpen, onClose, bookingId, bookerName, de
       </DialogHeader>
 
       <div className="py-4">
-        <div className="bg-red-50/50 p-4 rounded-xl border border-red-100 space-y-1">
-          <p className="text-sm text-slate-700 font-medium">{details}</p>
-          <p className="text-sm text-slate-600">予約者: <span className="font-semibold text-slate-900">{bookerName}</span></p>
+        <div className="bg-red-50/50 p-4 rounded-xl border border-red-100 space-y-2">
+          <div className="flex text-sm">
+            <span className="w-20 text-slate-500">日付</span>
+            <span className="font-medium text-slate-900">{dateDisplay}</span>
+          </div>
+          <div className="flex text-sm">
+            <span className="w-20 text-slate-500">時間帯</span>
+            <span className="font-medium text-slate-900">{timeSlotLabel}　<span className="text-slate-500 font-normal">({timeSlotTime})</span></span>
+          </div>
+          <div className="flex text-sm">
+            <span className="w-20 text-slate-500">会議室</span>
+            <span className="font-medium text-slate-900">{roomLocation}</span>
+          </div>
+          <div className="flex text-sm">
+            <span className="w-20 text-slate-500">予約者</span>
+            <span className="font-semibold text-slate-900">{bookerName}</span>
+          </div>
         </div>
       </div>
 

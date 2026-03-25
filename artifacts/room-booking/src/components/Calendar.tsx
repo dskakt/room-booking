@@ -54,12 +54,18 @@ export function Calendar({ currentDate, bookings, isLoading }: CalendarProps) {
     isOpen: boolean;
     bookingId: number | null;
     bookerName: string;
-    details: string;
+    dateDisplay: string;
+    timeSlotLabel: string;
+    timeSlotTime: string;
+    roomLocation: string;
   }>({
     isOpen: false,
     bookingId: null,
     bookerName: "",
-    details: "",
+    dateDisplay: "",
+    timeSlotLabel: "",
+    timeSlotTime: "",
+    roomLocation: "",
   });
 
   // Fast lookup map: key = "YYYY-MM-DD_slotX_roomY"
@@ -81,7 +87,7 @@ export function Calendar({ currentDate, bookings, isLoading }: CalendarProps) {
       dateObj: date,
       dateStr: format(date, 'yyyy-MM-dd'),
       dayOfWeek: getDay(date), // 0 is Sunday
-      display: format(date, 'd日(E)', { locale: ja })
+      display: format(date, 'M月d日(E)', { locale: ja })
     };
   });
 
@@ -97,7 +103,10 @@ export function Calendar({ currentDate, bookings, isLoading }: CalendarProps) {
         isOpen: true,
         bookingId: existingBooking.id,
         bookerName: existingBooking.bookerName,
-        details: `${dateDisplay} ${slot.label} - ${room.name}`,
+        dateDisplay,
+        timeSlotLabel: slot.label,
+        timeSlotTime: slot.time,
+        roomLocation: room.location,
       });
     } else {
       setBookingModal({
@@ -228,7 +237,10 @@ export function Calendar({ currentDate, bookings, isLoading }: CalendarProps) {
         onClose={() => setDeleteModal(prev => ({ ...prev, isOpen: false }))}
         bookingId={deleteModal.bookingId}
         bookerName={deleteModal.bookerName}
-        details={deleteModal.details}
+        dateDisplay={deleteModal.dateDisplay}
+        timeSlotLabel={deleteModal.timeSlotLabel}
+        timeSlotTime={deleteModal.timeSlotTime}
+        roomLocation={deleteModal.roomLocation}
       />
     </>
   );
