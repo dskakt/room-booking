@@ -16,9 +16,9 @@ const SLOTS = [
 ] as const;
 
 const ROOMS = [
-  { id: 1, name: '会議室 1' },
-  { id: 2, name: '会議室 2' },
-  { id: 3, name: '会議室 3' },
+  { id: 1, name: '会議室1', location: '石川台4号館 B02-B05' },
+  { id: 2, name: '会議室2', location: '石川台4号館 B06-B07' },
+  { id: 3, name: '会議室3', location: '南6号館106' },
 ];
 
 interface CalendarProps {
@@ -129,7 +129,8 @@ export function Calendar({ currentDate, bookings, isLoading }: CalendarProps) {
                 <th className="py-4 px-2 font-semibold text-slate-700 border-r border-slate-200 w-[16%]">時間帯</th>
                 {ROOMS.map(room => (
                   <th key={room.id} className="py-4 px-2 font-semibold text-slate-700 border-r border-slate-200 last:border-r-0 w-[24%]">
-                    {room.name}
+                    <div>{room.name}</div>
+                    <div className="text-xs font-normal text-slate-400 mt-0.5">{room.location}</div>
                   </th>
                 ))}
               </tr>
