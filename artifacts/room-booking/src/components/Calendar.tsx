@@ -154,16 +154,14 @@ export function Calendar({ currentDate, bookings, isLoading }: CalendarProps) {
                           {day.display}
                         </td>
                       )}
-                      
                       <td className={cn(
                         "border-r border-slate-100 px-3 py-2 text-center text-xs",
                         isWeekend ? "bg-slate-50/30" : "bg-white",
                         slotIndex === SLOTS.length - 1 ? "border-b border-slate-200" : ""
                       )}>
-                        <div className="font-medium text-slate-700">{slot.label}</div>
+                        <div className="font-medium text-slate-700 text-[14px]">{slot.label}</div>
                         <div className="text-[10px] text-slate-400 scale-90">{slot.time}</div>
                       </td>
-
                       {ROOMS.map(room => {
                         const key = `${day.dateStr}_${slot.id}_${room.id}`;
                         const booking = bookingMap[key];
@@ -204,7 +202,6 @@ export function Calendar({ currentDate, bookings, isLoading }: CalendarProps) {
           </table>
         </div>
       </div>
-
       <BookingForm 
         isOpen={bookingModal.isOpen} 
         onClose={() => setBookingModal(prev => ({ ...prev, isOpen: false }))}
@@ -214,7 +211,6 @@ export function Calendar({ currentDate, bookings, isLoading }: CalendarProps) {
         roomId={bookingModal.roomId}
         roomName={bookingModal.roomName}
       />
-
       <DeleteConfirmDialog
         isOpen={deleteModal.isOpen}
         onClose={() => setDeleteModal(prev => ({ ...prev, isOpen: false }))}
