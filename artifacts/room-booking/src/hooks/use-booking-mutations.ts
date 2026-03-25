@@ -8,14 +8,14 @@ export function useBookingMutations() {
 
   const createMutation = useCreateBooking({
     mutation: {
-      onSuccess: () => {
-        // Invalidate all booking queries to refetch across any month view
-        queryClient.invalidateQueries({ queryKey: ["/api/bookings"] });
-        toast({
-          title: "予約完了",
-          description: "会議室の予約が完了しました。",
-        });
-      },
+      onSuccess: async () => {
+  await queryClient.invalidateQueries({ queryKey: ["/api/bookings"] });
+  await queryClient.refetchQueries({ queryKey: ["/api/bookings"] });
+  toast({
+    title: "予約完了",
+    description: "会議室の予約が完了しました。",
+  });
+},
       onError: (error) => {
         toast({
           variant: "destructive",
