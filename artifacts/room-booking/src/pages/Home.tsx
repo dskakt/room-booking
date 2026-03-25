@@ -43,8 +43,9 @@ export default function Home() {
               ROOM BOOKING
             </div>
             <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">融合理工学系の会議室予約</h1>
-            <p className="text-slate-500 font-medium">
-              空いている枠をクリックして会議室を予約できます。
+            <p className="text-slate-500 font-medium text-sm leading-relaxed">
+              予約方法：空いている枠をクリックして氏名を入力してください<br />
+              キャンセル：予約した枠をクリックするとキャンセルできます
             </p>
           </div>
 
