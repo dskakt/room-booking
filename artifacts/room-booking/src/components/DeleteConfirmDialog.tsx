@@ -28,14 +28,6 @@ export function DeleteConfirmDialog({ isOpen, onClose, bookingId, bookerName, da
     }
   };
 
-  // YYYY-MM-DD → YYYY年MM月DD日（曜日）
-const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
-const dateObj = new Date(date);
-const dayOfWeek = weekdays[dateObj.getDay()];
-const displayDate = date.replace(
-  /(\d{4})-(\d{2})-(\d{2})/,
-  `$1年$2月$3日（${dayOfWeek}）`
-);
   
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
