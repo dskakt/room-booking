@@ -86,7 +86,7 @@ export function BookingForm({ isOpen, onClose, date, timeSlot, timeSlotLabel, ti
             id="bookerName"
             {...register("bookerName")}
             autoFocus
-            placeholder="例: 山田 太郎"
+            placeholder="例: 野比 のび太"
             className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
           />
           {errors.bookerName && (
