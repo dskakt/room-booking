@@ -135,3 +135,10 @@ app.delete("/api/bookings/:id", async (req, res) => {
 app.listen(port, "0.0.0.0", () => {
   console.log(`API listening on port ${port}`);
 });
+
+app.use((req, res, next) => {
+  res.set("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
+  res.set("Pragma", "no-cache");
+  res.set("Expires", "0");
+  next();
+});
