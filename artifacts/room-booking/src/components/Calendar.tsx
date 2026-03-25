@@ -189,7 +189,7 @@ export function Calendar({ currentDate, bookings, isLoading }: CalendarProps) {
                             key={key} 
                             onClick={() => handleCellClick(day.dateStr, day.display, slot, room, booking)}
                             className={cn(
-                              "border-r border-slate-100 p-2 cursor-pointer transition-all duration-200 group/cell",
+                              "border-r border-slate-100 p-2 cursor-pointer group/cell",
                               isWeekend ? "bg-slate-50/30" : "bg-white",
                               slotIndex === SLOTS.length - 1 ? "border-b border-slate-200" : "",
                               booking ? "hover:bg-red-50/50" : "hover:bg-blue-50"
