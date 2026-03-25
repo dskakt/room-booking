@@ -16,9 +16,9 @@ const SLOTS = [
 ] as const;
 
 const ROOMS = [
-  { id: 1, name: '会議室1', location: '石川台4号館 B02-B05', seats: 48, projector: 'あり' as const },
-  { id: 2, name: '会議室2', location: '石川台4号館 B08-B09', seats: 15, projector: '不明' as const },
-  { id: 3, name: '会議室3', location: '南6号館 106', seats: 10, projector: 'あり' as const },
+  { id: 1, name: '会議室1', location: '石川台4号館 B02-B05', seats: 48 as const },
+  { id: 2, name: '会議室2', location: '石川台4号館 B08-B09', seats: 15 as const },
+  { id: 3, name: '会議室3', location: '南6号館 106', seats: 10 as const },
 ];
 
 interface CalendarProps {
@@ -146,7 +146,7 @@ export function Calendar({ currentDate, bookings, isLoading }: CalendarProps) {
                     <div>{room.location}</div>
                     <div className="flex items-center justify-center gap-2 mt-1 text-xs font-normal text-slate-500">
                       <span>席数：{room.seats}</span>
-                      <span>プロジェクター：{room.projector}</span>
+                    
                     </div>
                   </th>
                 ))}
