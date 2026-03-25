@@ -164,7 +164,7 @@ export function Calendar({ currentDate, bookings, isLoading }: CalendarProps) {
                         <td 
                           rowSpan={SLOTS.length} 
                           className={cn(
-                            "sticky left-0 z-10 bg-white border-r border-b border-slate-200 p-4 align-top font-medium shadow-[1px_0_0_0_#e2e8f0]",
+                            "sticky left-0 z-10 bg-white border-r border-b border-slate-200 p-4 align-middle text-center font-medium shadow-[1px_0_0_0_#e2e8f0]",
                             day.dayOfWeek === 0 ? "text-red-600" : day.dayOfWeek === 6 ? "text-blue-600" : "text-slate-800",
                             isWeekend ? "bg-slate-50/50" : ""
                           )}
