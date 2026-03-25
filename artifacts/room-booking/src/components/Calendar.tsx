@@ -132,7 +132,7 @@ export function Calendar({ currentDate, bookings, isLoading }: CalendarProps) {
                     <div>{room.location}</div>
                     <div className="flex items-center justify-center gap-2 mt-1 text-xs font-normal text-slate-500">
                       <span>🪑 {room.seats}席</span>
-                      <span>📽 {room.projector}</span>
+                      <span>🖥️ {room.projector}</span>
                     </div>
                   </th>
                 ))}
