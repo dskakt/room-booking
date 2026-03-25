@@ -125,8 +125,8 @@ export function Calendar({ currentDate, bookings, isLoading }: CalendarProps) {
           <table className="w-full min-w-[800px] border-collapse text-sm">
             <thead>
               <tr className="bg-slate-50 border-b border-slate-200">
-                <th className="sticky left-0 z-20 bg-slate-50 border-r border-slate-200 py-4 px-4 font-semibold text-slate-700 w-32 shadow-[1px_0_0_0_#e2e8f0]">日付</th>
-                <th className="py-4 px-4 font-semibold text-slate-700 border-r border-slate-200 w-24">時間帯</th>
+                <th className="sticky left-0 z-20 bg-slate-50 border-r border-slate-200 py-4 px-4 font-semibold text-slate-700 min-w-[100px] w-[16%] shadow-[1px_0_0_0_#e2e8f0]">日付</th>
+                <th className="py-4 px-4 font-semibold text-slate-700 border-r border-slate-200 min-w-[100px] w-[16%]">時間帯</th>
                 {ROOMS.map(room => (
                   <th key={room.id} className="py-4 px-4 font-semibold text-slate-700 border-r border-slate-200 last:border-r-0 min-w-[100px] w-[16%]">
                     {room.name}
