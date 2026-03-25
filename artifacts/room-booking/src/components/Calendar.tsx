@@ -136,14 +136,13 @@ export function Calendar({ currentDate, bookings, isLoading }: CalendarProps) {
   return (
     <>
       <div className="w-full bg-white rounded-2xl shadow-sm border border-slate-200">
-        <div className="overflow-x-auto rounded-2xl">
           <table className="w-full border-collapse text-sm table-fixed">
             <thead>
-              <tr className="bg-slate-50 border-b border-slate-200 sticky top-0 z-30">
-                <th className="sticky left-0 z-20 bg-slate-50 border-r border-slate-200 py-4 px-2 font-semibold text-slate-700 w-[12%] shadow-[1px_0_0_0_#e2e8f0]">日付</th>
-                <th className="py-4 px-2 font-semibold text-slate-700 border-r border-slate-200 w-[16%]">時間帯</th>
+              <tr className="bg-slate-50 border-b border-slate-200">
+                <th className="sticky top-0 left-0 z-40 bg-slate-50 border-r border-slate-200 py-4 px-2 font-semibold text-slate-700 w-[12%] shadow-[1px_0_0_0_#e2e8f0]">日付</th>
+                <th className="sticky top-0 z-30 bg-slate-50 py-4 px-2 font-semibold text-slate-700 border-r border-slate-200 w-[16%]">時間帯</th>
                 {ROOMS.map(room => (
-                  <th key={room.id} className="py-4 px-2 font-semibold text-slate-700 border-r border-slate-200 last:border-r-0 w-[24%]">
+                  <th key={room.id} className="sticky top-0 z-30 bg-slate-50 py-4 px-2 font-semibold text-slate-700 border-r border-slate-200 last:border-r-0 w-[24%]">
                     <div>{room.location}</div>
                     <div className="flex items-center justify-center gap-2 mt-1 text-xs font-normal text-slate-500">
                       <span>席数：{room.seats}</span>
@@ -219,7 +218,6 @@ export function Calendar({ currentDate, bookings, isLoading }: CalendarProps) {
               })}
             </tbody>
           </table>
-        </div>
       </div>
       <BookingForm 
         isOpen={bookingModal.isOpen} 
