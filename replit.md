@@ -68,6 +68,29 @@ Every package extends `tsconfig.base.json` which sets `composite: true`. The roo
 - **Always typecheck from the root** — run `pnpm run typecheck` (which runs `tsc --build --emitDeclarationOnly`). This builds the full dependency graph so that cross-package imports resolve correctly.
 - **`emitDeclarationOnly`** — we only emit `.d.ts` files during typecheck; actual JS bundling is handled by esbuild/tsx/vite...etc, not `tsc`.
 
+## GitHub Repository
+
+The project is hosted on GitHub at **https://github.com/dskakt/room-booking** (public).
+
+The `origin` remote is configured:
+```
+origin  https://github.com/dskakt/room-booking.git (fetch)
+origin  https://github.com/dskakt/room-booking.git (push)
+```
+
+To push updates to GitHub, run:
+```
+node scripts/src/push-to-github.mjs
+```
+
+This script uses the Replit GitHub integration (connector proxy) with GitHub's
+Git Data API — no raw OAuth token required.
+
+## Integrations
+
+- **GitHub** (`conn_github_01KKG64AKPHMTH431K5MQKSPAD`) — connected via Replit OAuth.
+  Used for repository management. Requires `@replit/connectors-sdk`.
+
 ## Root Scripts
 
 - `pnpm run build` — runs `typecheck` first, then recursively runs `build` in all packages that define it
