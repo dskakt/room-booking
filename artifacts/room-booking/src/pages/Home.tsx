@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import { addMonths, subMonths, format } from "date-fns";
 import { ChevronLeft, ChevronRight, Calendar as CalendarIcon } from "lucide-react";
 import { useGetBookings } from "@workspace/api-client-react";
@@ -23,12 +22,7 @@ export default function Home() {
   const goToday = () => setCurrentDate(new Date());
 
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="min-h-screen pb-20"
-    >
+    <div className="min-h-screen pb-20">
       {/* Decorative subtle background */}
       <div 
         className="fixed inset-0 z-[-1] opacity-[0.03] pointer-events-none"
