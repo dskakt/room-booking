@@ -145,7 +145,7 @@ export function Calendar({ currentDate, bookings, isLoading }: CalendarProps) {
                   <th key={room.id} className="sticky top-0 z-30 bg-slate-50 py-4 px-2 font-semibold text-slate-700 border-r border-slate-200 last:border-r-0 w-[24%]">
                     <div>{room.location}</div>
                     <div className="flex items-center justify-center gap-2 mt-1 text-xs font-normal text-slate-500">
-                      <span>席数：{room.seats}</span>
+                      <span>席数：約{room.seats}</span>
                     
                     </div>
                   </th>
