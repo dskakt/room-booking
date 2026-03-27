@@ -147,3 +147,7 @@ app.use((req, res, next) => {
   res.set("Expires", "0");
   next();
 });
+
+app.get("/health", (req, res) => {
+  res.status(200).send("ok");
+});
